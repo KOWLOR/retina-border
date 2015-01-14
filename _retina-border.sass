@@ -1,0 +1,44 @@
+/* Retina-Border SASS Mixin
+
+  The MIT License (MIT)
+  Copyright (c) 2015 Malik Dellidj – @Dathink
+
+   – How to use : 
+
+   .foo
+     +retina-border(top $primary-color, bottom #bada55)
+
+   You can use : top, right, bottom, left directions in the order of your choice.
+   The color is always after the direction, and separated by a space.
+   Obviously if you don't specify, no border.
+   
+*/
+
+=retina-border($v...)
+  $o: ()
+  $r: ()
+  $pY: 0
+  $pX: 0
+  $h: 0
+  $w: 0
+  @each $d in $v
+    $p: nth($d, 1)
+    $c: nth($d, 2)
+    @if $p == bottom or $p == top
+      $r: repeat-x
+      $h: "0.5"
+      $w: "1"
+      @if $p == bottom
+        $pY: "0.5"
+    @else
+      $r: repeat-y
+      $h: "1"
+      $w: "0.5"
+      $pY: "0"
+      @if $p == right
+        $pX: "0.5"
+
+    $m: $r $p url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1' height='1'><rect x='#{$pX}' y='#{$pY}' width='#{$w}' height='#{$h}' fill='#{$c}'/></svg>")
+    $o: append($o, $m, comma)
+      
+  background: $o
