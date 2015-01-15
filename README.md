@@ -17,3 +17,4 @@ The render of the line will be 1 physical pixel on a retina screen.
 .foo
      +retina-border(top $primary-color, bottom #bada55)
 ```
+### [Demo →](http://bit.ly/1y2LKIR)
