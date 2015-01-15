@@ -8,7 +8,8 @@ On a retina device using the classic
 ```
 
 will render 2 physical pixels.
-This mixin creates a fake border, with svg in background of your element.
+This mixin creates a fake border, with a svg line in the background of your element.
+The render of the line will be 1 physical pixel on a retina screen.
 
 ## How to use : 
 
